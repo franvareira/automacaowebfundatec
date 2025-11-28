@@ -10,6 +10,7 @@ public class FakersGeneration {
     private String firstName;
     private String lastName;
     private String zipCode;
+    private String email;
 
     public FakersGeneration() {
 
@@ -36,5 +37,11 @@ public class FakersGeneration {
         zipCode = faker.address().zipCode();
         return zipCode;
 
+    }
+
+    public String getEmail(){
+
+        email = faker.internet().emailAddress();
+        return email;
     }
 }

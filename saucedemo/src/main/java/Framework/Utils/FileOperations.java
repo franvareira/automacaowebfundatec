@@ -9,7 +9,7 @@ public class FileOperations {
             System.getProperty("user.dir") + File.separator + "src" +
                     File.separator + "main" + File.separator + "resources" +
                     File.separator + "Properties" + File.separator;
-
+   //pegar dados dos arquivos de propriedades
     public static Properties getProperties (String fileName) {
 
         InputStream inputStream = null;
@@ -29,7 +29,7 @@ public class FileOperations {
 
         return prop;
     }
-
+   // salvar dados em arquivos de propriedades
     public static void setProperties(String fileName, String propKey, String propValue) {
 
         Properties prop = getProperties(fileName);

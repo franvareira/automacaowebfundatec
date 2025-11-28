@@ -1,6 +1,7 @@
 package TestCases;
 
 import Framework.TestBase;
+import Tasks.CheckoutTask;
 import Tasks.LoginTask;
 import Tasks.ProdutoTask;
 import org.junit.jupiter.api.Test;
@@ -12,6 +13,7 @@ public class RealizarCompraSucessoTest extends TestBase {
 
     LoginTask loginTask = new LoginTask(driver);
     ProdutoTask produtoTask = new ProdutoTask(driver);
+    CheckoutTask checkoutTask = new CheckoutTask(driver);
 
     @Test
     public void realizarCompra(){
@@ -20,6 +22,7 @@ public class RealizarCompraSucessoTest extends TestBase {
 
             loginTask.efetuarLogin();
             produtoTask.selecionarProduto();
+            checkoutTask.realizarCheckout();
 
 
         }catch (Exception e){
