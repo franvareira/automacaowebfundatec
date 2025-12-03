@@ -1,13 +1,19 @@
 package TestCases;
 
 import Framework.TestBase;
+import Framework.Utils.TakeScreenshot;
 import Tasks.CheckoutTask;
 import Tasks.FinishTask;
 import Tasks.LoginTask;
 import Tasks.ProdutoTask;
+import io.qameta.allure.Description;
+import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Story;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebDriver;
-
+@Epic("Teste E-comerce")
+@Feature("Realizar Compra com Sucesso")
 public class RealizarCompraSucessoTest extends TestBase {
 
     private final WebDriver driver = getDriverManager();
@@ -18,7 +24,9 @@ public class RealizarCompraSucessoTest extends TestBase {
     FinishTask finishTask = new FinishTask(driver);
 
     @Test
-    public void realizarCompra(){
+    @Story("Usuário faz login com credenciais válidas")
+    @Description("Testa uma compra com sucesso")
+    public void realizarCompra() throws InterruptedException {
 
         try {
 
@@ -29,7 +37,8 @@ public class RealizarCompraSucessoTest extends TestBase {
 
 
         }catch (Exception e){
-            e.getMessage();
+            TakeScreenshot.Screenshot(driver); // <-- Chame o screenshot aqui!
+            throw e; // <-- Relance a exceção para o teste ser marcado como falha!
 
         }
 
