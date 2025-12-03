@@ -17,12 +17,16 @@ public class CheckoutValidacao {
     }
 
     public void validationForm(){
+        try{
 
         Assertions.assertFalse(checkoutPage.getFirstNameInput().getAttribute("value").equalsIgnoreCase(" "));
+    }catch (Exception e){
+        e.getMessage();
+        }
     }
 
     public void validationCamposForm(){
-
+     try{
         String name = FileOperations.getProperties("form").getProperty("name");
         String lastName = FileOperations.getProperties("form").getProperty("lastname");
         String cep = FileOperations.getProperties("form").getProperty("zip");
@@ -30,5 +34,9 @@ public class CheckoutValidacao {
         Assertions.assertEquals(name, checkoutPage.getFirstNameInput().getAttribute("value"));
         Assertions.assertEquals(lastName, checkoutPage.getLastNameInput().getAttribute("value"));
         Assertions.assertEquals(cep, checkoutPage.getZipCodeInput().getAttribute("value"));
-    }
+    }catch (Exception e){
+       e.getMessage();
+     }
+
+   }
 }

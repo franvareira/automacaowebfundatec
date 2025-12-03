@@ -6,9 +6,11 @@ import Tasks.FinishTask;
 import Tasks.LoginTask;
 import Tasks.ProdutoTask;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.MethodSource;
 import org.openqa.selenium.WebDriver;
 
-public class RealizarCompraSucessoTest extends TestBase {
+public class RealizarCompraSucessoDataClassTest extends TestBase {
 
     private final WebDriver driver = getDriverManager();
 
@@ -17,12 +19,13 @@ public class RealizarCompraSucessoTest extends TestBase {
     CheckoutTask checkoutTask = new CheckoutTask(driver);
     FinishTask finishTask = new FinishTask(driver);
 
-    @Test
-    public void realizarCompra(){
+    @ParameterizedTest
+    @MethodSource("Framework.Utils.DataClass#loginTestData")
+    public void realizarCompra( String user, String password){
 
         try {
 
-            loginTask.efetuarLogin();
+            loginTask.efetuarLoginCSV(user,password);
             produtoTask.selecionarProduto();
             checkoutTask.realizarCheckout();
             finishTask.finalizarCompra();
