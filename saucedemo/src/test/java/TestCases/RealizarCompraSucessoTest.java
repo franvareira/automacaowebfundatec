@@ -37,7 +37,7 @@ public class RealizarCompraSucessoTest extends TestBase {
 
 
         }catch (Exception e){
-            TakeScreenshot.Screenshot(driver); // <-- Chame o screenshot aqui!
+            TakeScreenshot.attachPageScreenshot(driver,"ERRO"); // <-- Chame o screenshot aqui!
             throw e; // <-- Relance a exceção para o teste ser marcado como falha!
 
         }

@@ -21,9 +21,9 @@ public class CheckoutValidacao {
         try{
 
         Assertions.assertFalse(checkoutPage.getFirstNameInput().getAttribute("value").equalsIgnoreCase(" "));
-        TakeScreenshot.Screenshot(driver);
+        TakeScreenshot.attachPageScreenshot(driver,"Checkout");
     }catch (Exception e){
-            TakeScreenshot.Screenshot(driver);
+            TakeScreenshot.attachPageScreenshot(driver,"Checkout");
             throw e;
 
         }
@@ -38,9 +38,9 @@ public class CheckoutValidacao {
         Assertions.assertEquals(name, checkoutPage.getFirstNameInput().getAttribute("value"));
         Assertions.assertEquals(lastName, checkoutPage.getLastNameInput().getAttribute("value"));
         Assertions.assertEquals(cep, checkoutPage.getZipCodeInput().getAttribute("value"));
-        TakeScreenshot.Screenshot(driver);
+        TakeScreenshot.attachPageScreenshot(driver,"Checkout");
     }catch (Exception e){
-         TakeScreenshot.Screenshot(driver);
+         TakeScreenshot.attachPageScreenshot(driver,"Checkout");
          throw e;
      }
 
